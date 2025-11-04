@@ -4,14 +4,20 @@ import Spline from '@splinetool/react-spline';
 export default function Hero({ onPrimaryAction }) {
   return (
     <section className="relative">
-      <div className="relative h-[72vh] w-full overflow-hidden rounded-b-3xl">
-        <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      {/* 3D scene wrapper - full width, generous height, no negative z-index */}
+      <div className="relative w-full h-[78vh] md:h-[86vh]">
+        <Spline
+          scene="https://prod.spline.design/FduaNp3csZktbOi3/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+        {/* Soft gradient overlays that don't block interactions */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/0 via-white/0 to-white/70" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
       </div>
 
+      {/* Content card floating over the scene */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="-mt-16 sm:-mt-20 mb-10">
+        <div className="-mt-20 md:-mt-24 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +48,7 @@ export default function Hero({ onPrimaryAction }) {
                   href="#contact"
                   whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-5 py-3 rounded-full font-semibold bg-black text-white"
+                  className="px-5 py-3 rounded-full font-semibold text-white"
                   style={{ backgroundColor: '#1E4841' }}
                 >
                   Get in touch

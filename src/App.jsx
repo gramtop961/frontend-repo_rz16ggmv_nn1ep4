@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import SectionGrid from './components/SectionGrid.jsx';
 import ContactForm from './components/ContactForm.jsx';
+import ProjectHoverList from './components/ProjectHoverList.jsx';
 
 function App() {
   const [page, setPage] = useState('home');
@@ -86,12 +87,7 @@ function App() {
       {page === 'home' && (
         <>
           <Hero onPrimaryAction={() => setPage('projects')} />
-          <SectionGrid
-            title="Selected Projects"
-            description="A few highlights that blend engineering rigor with playful UX."
-            items={projects}
-            type="project"
-          />
+          <ProjectHoverList items={projects} />
         </>
       )}
 
